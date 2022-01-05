@@ -13,17 +13,9 @@ public class Exemplos {
 		palavras.add("casa do código");
 		palavras.add("caelum");
 
-		Comparator<String> comparator = new Comparator<String>() {
-
-			@Override
-			public int compare(String s1, String s2) {
-				return Integer.compare(s1.length(), s2.length());
-			}
-			
-		};
 //		Collections.sort(palavras, comparator);
 
-		palavras.sort(comparator);
+		palavras.sort((String s1, String s2) -> Integer.compare(s1.length(), s2.length()));
 
 		System.out.println(palavras);
 
@@ -32,15 +24,7 @@ public class Exemplos {
 //		}
 
 //		Consumer<String> consumer = new ImprimePalavras();
-		Consumer<String> consumer = new Consumer<String>() {
-
-			@Override
-			public void accept(String s) {
-				System.out.println(s);
-			}
-		};
-
-		palavras.forEach(consumer);
+		palavras.forEach(s -> System.out.println(s));
 
 	}
 }
